@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>文件服务</title>
+</head>
+<body>
+    <h2>{{ path_dis }}</h2>
+    <hr>
+        <form ENCTYPE="multipart/form-data" method="post" action="{{ current_path }}">
+            {% csrf_token %}
+            <input name="file" type="file"/>
+            <input type="submit" value="upload"/>
+            <input type="button", value="HomePage" onclick="location='/'"/>
+        </form>
+    <hr>
+    <ul>
+        {% for path in path_list %}
+        <li><a href="{{ path }}">{{ path }}</a></li>
+        {% endfor %}
+    </ul>
+    <p>{{ result }}</p>
+</body>
+</html>
